@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors")
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
 
 let notes = [
   {
@@ -115,6 +115,6 @@ app.use((req, res) => {
   res.status(404).end();
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });
