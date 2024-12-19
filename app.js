@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors")
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 let notes = [
   {
@@ -103,7 +103,7 @@ app.put("/api/notes/:id", (req, res) => {
     notes[noteIndex] = {
       ...notes[noteIndex],
       content: content ? content : notes[noteIndex].content,
-      important: important ? important : notes[noteIndex].important,
+      important: important !== undefined ? important : notes[noteIndex].important,
     };
     res.status(200).json(notes[noteIndex])
   } else {
